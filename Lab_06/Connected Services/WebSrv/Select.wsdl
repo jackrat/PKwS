@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://el.pcz.pl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://el.pcz.pl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://el.pcz.pl/">
+      <s:element name="Devices">
+        <s:complexType />
+      </s:element>
+      <s:element name="DevicesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OnlinesObises">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OnlinesObisesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OnlinesFromTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtTo" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OnlinesFromToResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OnlinesLastN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OnlinesLastNResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProfilesObises">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProfilesObisesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProfilesFromTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtTo" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProfilesFromToResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProfilesLastN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProfilesLastNResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MeasurePoints">
+        <s:complexType />
+      </s:element>
+      <s:element name="MeasurePointsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OnlinesFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OnlinesFromResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProfilesFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProfilesFromResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="XmlDevices">
+        <s:complexType />
+      </s:element>
+      <s:element name="XmlDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesObises">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesObisesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlOnlinesObisesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesFromTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtTo" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesFromToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlOnlinesFromToResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesLastN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesLastNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlOnlinesLastNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesObises">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesObisesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlProfilesObisesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesFromTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtTo" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesFromToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlProfilesFromToResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesLastN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesLastNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlProfilesLastNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlMeasurePoints">
+        <s:complexType />
+      </s:element>
+      <s:element name="XmlMeasurePointsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlMeasurePointsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlOnlinesFromResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlOnlinesFromResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtFrom" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObisCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlProfilesFromResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlProfilesFromResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:Devices" />
+  </wsdl:message>
+  <wsdl:message name="DevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:DevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesObisesSoapIn">
+    <wsdl:part name="parameters" element="tns:OnlinesObises" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesObisesSoapOut">
+    <wsdl:part name="parameters" element="tns:OnlinesObisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromToSoapIn">
+    <wsdl:part name="parameters" element="tns:OnlinesFromTo" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromToSoapOut">
+    <wsdl:part name="parameters" element="tns:OnlinesFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesLastNSoapIn">
+    <wsdl:part name="parameters" element="tns:OnlinesLastN" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesLastNSoapOut">
+    <wsdl:part name="parameters" element="tns:OnlinesLastNResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesObisesSoapIn">
+    <wsdl:part name="parameters" element="tns:ProfilesObises" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesObisesSoapOut">
+    <wsdl:part name="parameters" element="tns:ProfilesObisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromToSoapIn">
+    <wsdl:part name="parameters" element="tns:ProfilesFromTo" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromToSoapOut">
+    <wsdl:part name="parameters" element="tns:ProfilesFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesLastNSoapIn">
+    <wsdl:part name="parameters" element="tns:ProfilesLastN" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesLastNSoapOut">
+    <wsdl:part name="parameters" element="tns:ProfilesLastNResponse" />
+  </wsdl:message>
+  <wsdl:message name="MeasurePointsSoapIn">
+    <wsdl:part name="parameters" element="tns:MeasurePoints" />
+  </wsdl:message>
+  <wsdl:message name="MeasurePointsSoapOut">
+    <wsdl:part name="parameters" element="tns:MeasurePointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromSoapIn">
+    <wsdl:part name="parameters" element="tns:OnlinesFrom" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromSoapOut">
+    <wsdl:part name="parameters" element="tns:OnlinesFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromSoapIn">
+    <wsdl:part name="parameters" element="tns:ProfilesFrom" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromSoapOut">
+    <wsdl:part name="parameters" element="tns:ProfilesFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlDevices" />
+  </wsdl:message>
+  <wsdl:message name="XmlDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesObises" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesObisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesFromTo" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesLastN" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesLastNResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlProfilesObises" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlProfilesObisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlProfilesFromTo" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlProfilesFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlProfilesLastN" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlProfilesLastNResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlMeasurePointsSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlMeasurePoints" />
+  </wsdl:message>
+  <wsdl:message name="XmlMeasurePointsSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlMeasurePointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesFrom" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlOnlinesFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlProfilesFrom" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlProfilesFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevicesHttpGetIn" />
+  <wsdl:message name="DevicesHttpGetOut" />
+  <wsdl:message name="OnlinesObisesHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesObisesHttpGetOut" />
+  <wsdl:message name="OnlinesFromToHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromToHttpGetOut" />
+  <wsdl:message name="OnlinesLastNHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesLastNHttpGetOut" />
+  <wsdl:message name="ProfilesObisesHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesObisesHttpGetOut" />
+  <wsdl:message name="ProfilesFromToHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromToHttpGetOut" />
+  <wsdl:message name="ProfilesLastNHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesLastNHttpGetOut" />
+  <wsdl:message name="MeasurePointsHttpGetIn" />
+  <wsdl:message name="MeasurePointsHttpGetOut" />
+  <wsdl:message name="OnlinesFromHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromHttpGetOut" />
+  <wsdl:message name="ProfilesFromHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromHttpGetOut" />
+  <wsdl:message name="XmlDevicesHttpGetIn" />
+  <wsdl:message name="XmlDevicesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlMeasurePointsHttpGetIn" />
+  <wsdl:message name="XmlMeasurePointsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromHttpGetIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="DevicesHttpPostIn" />
+  <wsdl:message name="DevicesHttpPostOut" />
+  <wsdl:message name="OnlinesObisesHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesObisesHttpPostOut" />
+  <wsdl:message name="OnlinesFromToHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromToHttpPostOut" />
+  <wsdl:message name="OnlinesLastNHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesLastNHttpPostOut" />
+  <wsdl:message name="ProfilesObisesHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesObisesHttpPostOut" />
+  <wsdl:message name="ProfilesFromToHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromToHttpPostOut" />
+  <wsdl:message name="ProfilesLastNHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesLastNHttpPostOut" />
+  <wsdl:message name="MeasurePointsHttpPostIn" />
+  <wsdl:message name="MeasurePointsHttpPostOut" />
+  <wsdl:message name="OnlinesFromHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OnlinesFromHttpPostOut" />
+  <wsdl:message name="ProfilesFromHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProfilesFromHttpPostOut" />
+  <wsdl:message name="XmlDevicesHttpPostIn" />
+  <wsdl:message name="XmlDevicesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesObisesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromToHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesLastNHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesObisesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="dtTo" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromToHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="LastN" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesLastNHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlMeasurePointsHttpPostIn" />
+  <wsdl:message name="XmlMeasurePointsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlOnlinesFromHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromHttpPostIn">
+    <wsdl:part name="DeviceID" type="s:string" />
+    <wsdl:part name="dtFrom" type="s:string" />
+    <wsdl:part name="ObisCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XmlProfilesFromHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="SelectSoap">
+    <wsdl:operation name="Devices">
+      <wsdl:input message="tns:DevicesSoapIn" />
+      <wsdl:output message="tns:DevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <wsdl:input message="tns:OnlinesObisesSoapIn" />
+      <wsdl:output message="tns:OnlinesObisesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <wsdl:input message="tns:OnlinesFromToSoapIn" />
+      <wsdl:output message="tns:OnlinesFromToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <wsdl:input message="tns:OnlinesLastNSoapIn" />
+      <wsdl:output message="tns:OnlinesLastNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <wsdl:input message="tns:ProfilesObisesSoapIn" />
+      <wsdl:output message="tns:ProfilesObisesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <wsdl:input message="tns:ProfilesFromToSoapIn" />
+      <wsdl:output message="tns:ProfilesFromToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <wsdl:input message="tns:ProfilesLastNSoapIn" />
+      <wsdl:output message="tns:ProfilesLastNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <wsdl:input message="tns:MeasurePointsSoapIn" />
+      <wsdl:output message="tns:MeasurePointsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <wsdl:input message="tns:OnlinesFromSoapIn" />
+      <wsdl:output message="tns:OnlinesFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <wsdl:input message="tns:ProfilesFromSoapIn" />
+      <wsdl:output message="tns:ProfilesFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <wsdl:input message="tns:XmlDevicesSoapIn" />
+      <wsdl:output message="tns:XmlDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <wsdl:input message="tns:XmlOnlinesObisesSoapIn" />
+      <wsdl:output message="tns:XmlOnlinesObisesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <wsdl:input message="tns:XmlOnlinesFromToSoapIn" />
+      <wsdl:output message="tns:XmlOnlinesFromToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <wsdl:input message="tns:XmlOnlinesLastNSoapIn" />
+      <wsdl:output message="tns:XmlOnlinesLastNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <wsdl:input message="tns:XmlProfilesObisesSoapIn" />
+      <wsdl:output message="tns:XmlProfilesObisesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <wsdl:input message="tns:XmlProfilesFromToSoapIn" />
+      <wsdl:output message="tns:XmlProfilesFromToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <wsdl:input message="tns:XmlProfilesLastNSoapIn" />
+      <wsdl:output message="tns:XmlProfilesLastNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <wsdl:input message="tns:XmlMeasurePointsSoapIn" />
+      <wsdl:output message="tns:XmlMeasurePointsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <wsdl:input message="tns:XmlOnlinesFromSoapIn" />
+      <wsdl:output message="tns:XmlOnlinesFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <wsdl:input message="tns:XmlProfilesFromSoapIn" />
+      <wsdl:output message="tns:XmlProfilesFromSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SelectHttpGet">
+    <wsdl:operation name="Devices">
+      <wsdl:input message="tns:DevicesHttpGetIn" />
+      <wsdl:output message="tns:DevicesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <wsdl:input message="tns:OnlinesObisesHttpGetIn" />
+      <wsdl:output message="tns:OnlinesObisesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <wsdl:input message="tns:OnlinesFromToHttpGetIn" />
+      <wsdl:output message="tns:OnlinesFromToHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <wsdl:input message="tns:OnlinesLastNHttpGetIn" />
+      <wsdl:output message="tns:OnlinesLastNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <wsdl:input message="tns:ProfilesObisesHttpGetIn" />
+      <wsdl:output message="tns:ProfilesObisesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <wsdl:input message="tns:ProfilesFromToHttpGetIn" />
+      <wsdl:output message="tns:ProfilesFromToHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <wsdl:input message="tns:ProfilesLastNHttpGetIn" />
+      <wsdl:output message="tns:ProfilesLastNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <wsdl:input message="tns:MeasurePointsHttpGetIn" />
+      <wsdl:output message="tns:MeasurePointsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <wsdl:input message="tns:OnlinesFromHttpGetIn" />
+      <wsdl:output message="tns:OnlinesFromHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <wsdl:input message="tns:ProfilesFromHttpGetIn" />
+      <wsdl:output message="tns:ProfilesFromHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <wsdl:input message="tns:XmlDevicesHttpGetIn" />
+      <wsdl:output message="tns:XmlDevicesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <wsdl:input message="tns:XmlOnlinesObisesHttpGetIn" />
+      <wsdl:output message="tns:XmlOnlinesObisesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <wsdl:input message="tns:XmlOnlinesFromToHttpGetIn" />
+      <wsdl:output message="tns:XmlOnlinesFromToHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <wsdl:input message="tns:XmlOnlinesLastNHttpGetIn" />
+      <wsdl:output message="tns:XmlOnlinesLastNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <wsdl:input message="tns:XmlProfilesObisesHttpGetIn" />
+      <wsdl:output message="tns:XmlProfilesObisesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <wsdl:input message="tns:XmlProfilesFromToHttpGetIn" />
+      <wsdl:output message="tns:XmlProfilesFromToHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <wsdl:input message="tns:XmlProfilesLastNHttpGetIn" />
+      <wsdl:output message="tns:XmlProfilesLastNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <wsdl:input message="tns:XmlMeasurePointsHttpGetIn" />
+      <wsdl:output message="tns:XmlMeasurePointsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <wsdl:input message="tns:XmlOnlinesFromHttpGetIn" />
+      <wsdl:output message="tns:XmlOnlinesFromHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <wsdl:input message="tns:XmlProfilesFromHttpGetIn" />
+      <wsdl:output message="tns:XmlProfilesFromHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SelectHttpPost">
+    <wsdl:operation name="Devices">
+      <wsdl:input message="tns:DevicesHttpPostIn" />
+      <wsdl:output message="tns:DevicesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <wsdl:input message="tns:OnlinesObisesHttpPostIn" />
+      <wsdl:output message="tns:OnlinesObisesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <wsdl:input message="tns:OnlinesFromToHttpPostIn" />
+      <wsdl:output message="tns:OnlinesFromToHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <wsdl:input message="tns:OnlinesLastNHttpPostIn" />
+      <wsdl:output message="tns:OnlinesLastNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <wsdl:input message="tns:ProfilesObisesHttpPostIn" />
+      <wsdl:output message="tns:ProfilesObisesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <wsdl:input message="tns:ProfilesFromToHttpPostIn" />
+      <wsdl:output message="tns:ProfilesFromToHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <wsdl:input message="tns:ProfilesLastNHttpPostIn" />
+      <wsdl:output message="tns:ProfilesLastNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <wsdl:input message="tns:MeasurePointsHttpPostIn" />
+      <wsdl:output message="tns:MeasurePointsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <wsdl:input message="tns:OnlinesFromHttpPostIn" />
+      <wsdl:output message="tns:OnlinesFromHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <wsdl:input message="tns:ProfilesFromHttpPostIn" />
+      <wsdl:output message="tns:ProfilesFromHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <wsdl:input message="tns:XmlDevicesHttpPostIn" />
+      <wsdl:output message="tns:XmlDevicesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <wsdl:input message="tns:XmlOnlinesObisesHttpPostIn" />
+      <wsdl:output message="tns:XmlOnlinesObisesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <wsdl:input message="tns:XmlOnlinesFromToHttpPostIn" />
+      <wsdl:output message="tns:XmlOnlinesFromToHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <wsdl:input message="tns:XmlOnlinesLastNHttpPostIn" />
+      <wsdl:output message="tns:XmlOnlinesLastNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <wsdl:input message="tns:XmlProfilesObisesHttpPostIn" />
+      <wsdl:output message="tns:XmlProfilesObisesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <wsdl:input message="tns:XmlProfilesFromToHttpPostIn" />
+      <wsdl:output message="tns:XmlProfilesFromToHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <wsdl:input message="tns:XmlProfilesLastNHttpPostIn" />
+      <wsdl:output message="tns:XmlProfilesLastNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <wsdl:input message="tns:XmlMeasurePointsHttpPostIn" />
+      <wsdl:output message="tns:XmlMeasurePointsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <wsdl:input message="tns:XmlOnlinesFromHttpPostIn" />
+      <wsdl:output message="tns:XmlOnlinesFromHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <wsdl:input message="tns:XmlProfilesFromHttpPostIn" />
+      <wsdl:output message="tns:XmlProfilesFromHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SelectSoap" type="tns:SelectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Devices">
+      <soap:operation soapAction="http://el.pcz.pl/Devices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <soap:operation soapAction="http://el.pcz.pl/OnlinesObises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <soap:operation soapAction="http://el.pcz.pl/OnlinesFromTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <soap:operation soapAction="http://el.pcz.pl/OnlinesLastN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <soap:operation soapAction="http://el.pcz.pl/ProfilesObises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <soap:operation soapAction="http://el.pcz.pl/ProfilesFromTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <soap:operation soapAction="http://el.pcz.pl/ProfilesLastN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <soap:operation soapAction="http://el.pcz.pl/MeasurePoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <soap:operation soapAction="http://el.pcz.pl/OnlinesFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <soap:operation soapAction="http://el.pcz.pl/ProfilesFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <soap:operation soapAction="http://el.pcz.pl/XmlDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <soap:operation soapAction="http://el.pcz.pl/XmlOnlinesObises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <soap:operation soapAction="http://el.pcz.pl/XmlOnlinesFromTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <soap:operation soapAction="http://el.pcz.pl/XmlOnlinesLastN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <soap:operation soapAction="http://el.pcz.pl/XmlProfilesObises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <soap:operation soapAction="http://el.pcz.pl/XmlProfilesFromTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <soap:operation soapAction="http://el.pcz.pl/XmlProfilesLastN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <soap:operation soapAction="http://el.pcz.pl/XmlMeasurePoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <soap:operation soapAction="http://el.pcz.pl/XmlOnlinesFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <soap:operation soapAction="http://el.pcz.pl/XmlProfilesFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SelectSoap12" type="tns:SelectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Devices">
+      <soap12:operation soapAction="http://el.pcz.pl/Devices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <soap12:operation soapAction="http://el.pcz.pl/OnlinesObises" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <soap12:operation soapAction="http://el.pcz.pl/OnlinesFromTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <soap12:operation soapAction="http://el.pcz.pl/OnlinesLastN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <soap12:operation soapAction="http://el.pcz.pl/ProfilesObises" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <soap12:operation soapAction="http://el.pcz.pl/ProfilesFromTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <soap12:operation soapAction="http://el.pcz.pl/ProfilesLastN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <soap12:operation soapAction="http://el.pcz.pl/MeasurePoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <soap12:operation soapAction="http://el.pcz.pl/OnlinesFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <soap12:operation soapAction="http://el.pcz.pl/ProfilesFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlOnlinesObises" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlOnlinesFromTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlOnlinesLastN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlProfilesObises" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlProfilesFromTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlProfilesLastN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlMeasurePoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlOnlinesFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <soap12:operation soapAction="http://el.pcz.pl/XmlProfilesFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SelectHttpGet" type="tns:SelectHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Devices">
+      <http:operation location="/Devices" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <http:operation location="/OnlinesObises" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <http:operation location="/OnlinesFromTo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <http:operation location="/OnlinesLastN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <http:operation location="/ProfilesObises" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <http:operation location="/ProfilesFromTo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <http:operation location="/ProfilesLastN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <http:operation location="/MeasurePoints" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <http:operation location="/OnlinesFrom" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <http:operation location="/ProfilesFrom" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <http:operation location="/XmlDevices" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <http:operation location="/XmlOnlinesObises" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <http:operation location="/XmlOnlinesFromTo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <http:operation location="/XmlOnlinesLastN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <http:operation location="/XmlProfilesObises" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <http:operation location="/XmlProfilesFromTo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <http:operation location="/XmlProfilesLastN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <http:operation location="/XmlMeasurePoints" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <http:operation location="/XmlOnlinesFrom" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <http:operation location="/XmlProfilesFrom" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SelectHttpPost" type="tns:SelectHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Devices">
+      <http:operation location="/Devices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesObises">
+      <http:operation location="/OnlinesObises" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFromTo">
+      <http:operation location="/OnlinesFromTo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesLastN">
+      <http:operation location="/OnlinesLastN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesObises">
+      <http:operation location="/ProfilesObises" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFromTo">
+      <http:operation location="/ProfilesFromTo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesLastN">
+      <http:operation location="/ProfilesLastN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="MeasurePoints">
+      <http:operation location="/MeasurePoints" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="OnlinesFrom">
+      <http:operation location="/OnlinesFrom" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ProfilesFrom">
+      <http:operation location="/ProfilesFrom" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="XmlDevices">
+      <http:operation location="/XmlDevices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesObises">
+      <http:operation location="/XmlOnlinesObises" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFromTo">
+      <http:operation location="/XmlOnlinesFromTo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesLastN">
+      <http:operation location="/XmlOnlinesLastN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesObises">
+      <http:operation location="/XmlProfilesObises" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFromTo">
+      <http:operation location="/XmlProfilesFromTo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesLastN">
+      <http:operation location="/XmlProfilesLastN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlMeasurePoints">
+      <http:operation location="/XmlMeasurePoints" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlOnlinesFrom">
+      <http:operation location="/XmlOnlinesFrom" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlProfilesFrom">
+      <http:operation location="/XmlProfilesFrom" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Select">
+    <wsdl:port name="SelectSoap" binding="tns:SelectSoap">
+      <soap:address location="http://10.111.114.247:8000/Select.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SelectSoap12" binding="tns:SelectSoap12">
+      <soap12:address location="http://10.111.114.247:8000/Select.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SelectHttpGet" binding="tns:SelectHttpGet">
+      <http:address location="http://10.111.114.247:8000/Select.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SelectHttpPost" binding="tns:SelectHttpPost">
+      <http:address location="http://10.111.114.247:8000/Select.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
